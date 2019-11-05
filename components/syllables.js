@@ -10,12 +10,20 @@ let syllablesComponent = {
         <div class="col-md-4">
             <h2>Syllabes ({{ nbSyllables }})</h2>
             <ul class="list-inline">
-                <li v-for="syllable in mixSyllables(splitIntoSyllables)" class="list-inline-item">
-                    <button @click="addToResetZone(syllable)" role="button" class="btn btn-light">{{ syllable }}</button>
+                <li
+                    v-for="syllable in mixSyllables(splitIntoSyllables)"
+                    :key="syllable.id"
+                    class="list-inline-item">
+                    <button @click="addToResetZone(syllable)" role="button" class="btn btn-light" :disabled="!syllable.isDisplayed">{{ syllable.syllable }}</button>
                 </li>
             </ul>
         </div>
     `,
+    data: function() {
+        return {
+            listSyllables: []
+        }
+    },
     methods: {
         /*
         *   Shuffles array in place.
@@ -37,7 +45,12 @@ let syllablesComponent = {
         *   @param {String} syllable: the syllable to add to the reset zone
         */
         addToResetZone: function(syllable) {
-            this.$emit('add-to-reset-zone', syllable);
+            for (let i in this.listSyllables) {
+                if (this.listSyllables[i].id == syllable.id) {
+                    this.listSyllables[i].isDisplayed = false;
+                }
+            }
+            this.$emit('add-to-reset-zone', syllable.syllable);
         }
     },
     computed: {
@@ -45,7 +58,15 @@ let syllablesComponent = {
         *   Splits the word into syllables  
         */
         splitIntoSyllables: function() {
-            return this.word.split('-');
+            let syllables = this.word.split('-');
+            for (let syllable in syllables) {
+                this.listSyllables.push({
+                    id: syllable,
+                    syllable: syllables[syllable],
+                    isDisplayed: true
+                });
+            }
+            return this.listSyllables;
         },
         /*
         *   Counts the number of syllables
