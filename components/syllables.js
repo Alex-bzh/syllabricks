@@ -11,7 +11,7 @@ let syllablesComponent = {
             <h2>Syllabes ({{ nbSyllables }})</h2>
             <ul class="list-inline">
                 <li v-for="syllable in mixSyllables(splitIntoSyllables)" class="list-inline-item">
-                    <button role="button" class="btn btn-light">{{ syllable }}</button>
+                    <button @click="addToResetZone(syllable)" role="button" class="btn btn-light">{{ syllable }}</button>
                 </li>
             </ul>
         </div>
@@ -31,12 +31,25 @@ let syllablesComponent = {
                 a[j] = x;
             }
             return a;
+        },
+        /*
+        *   Emits an event called add to reset zone
+        *   @param {String} syllable: the syllable to add to the reset zone
+        */
+        addToResetZone: function(syllable) {
+            this.$emit('add-to-reset-zone', syllable);
         }
     },
     computed: {
+        /*
+        *   Splits the word into syllables  
+        */
         splitIntoSyllables: function() {
             return this.word.split('-');
         },
+        /*
+        *   Counts the number of syllables
+        */
         nbSyllables: function() {
             return this.splitIntoSyllables.length;
         }

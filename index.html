@@ -11,10 +11,8 @@
         <div class="container">
             <h1>Syllabricks</h1>
             <div class="row">
-                <div class="col-md-8">
-                    <h2>Mot à recomposer</h2>
-                </div>
-                <syllables :word="word"></syllables>
+                <reset :word="word" :syllables="syllables"></reset>
+                <syllables :word="word" @add-to-reset-zone="updateResetZone"></syllables>
             </div>
         </div>
     </div>
@@ -22,6 +20,7 @@
     <script src="assets/vuejs/vuex.js"></script>
     <script src="assets/jquery/jquery-3.4.1.min.js"></script>
     <script src="assets/bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="components/reset.js"></script>
     <script src="components/syllables.js"></script>
     <script src="main.js"></script>
 </body>
