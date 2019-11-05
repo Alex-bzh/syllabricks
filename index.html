@@ -14,19 +14,15 @@
                 <div class="col-md-8">
                     <h2>Mot à recomposer</h2>
                 </div>
-                <div class="col-md-4">
-                    <h2>Syllabes ({{ nbSyllables }})</h2>
-                    <ul v-for="syllable in syllables" class="list-unstyled">
-                        <li><button role="button" class="btn btn-light">{{ syllable }}</button></li>
-                    </ul>
-                </div>
+                <syllables :word="word"></syllables>
             </div>
         </div>
     </div>
-<script src="assets/vuejs/vue.min.js"></script>
-<script src="assets/vuejs/vuex.js"></script>
-<script src="assets/jquery/jquery-3.4.1.min.js"></script>
-<script src="assets/bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script>
-<script src="main.js"></script>
+    <script src="assets/vuejs/vue.min.js"></script>
+    <script src="assets/vuejs/vuex.js"></script>
+    <script src="assets/jquery/jquery-3.4.1.min.js"></script>
+    <script src="assets/bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="components/syllables.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
