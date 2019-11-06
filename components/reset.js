@@ -4,7 +4,7 @@ let resetComponent = {
             type: String,
             required: true
         },
-        syllables: {
+        bricks: {
             type: Array,
             required: true
         }
@@ -12,9 +12,13 @@ let resetComponent = {
     template: `
         <div class="col-md-8">
             <h2>Mot à recomposer</h2>
-            <ul>
-                <li v-for="syllable in syllables">{{ syllable }}</li>
-            </ul>
+            <p class="display-1">
+                <span
+                    v-for="brick in bricks"
+                    :class="brick.order == bricks.indexOf(brick) ? 'text-success' : 'text-danger'">
+                    {{ brick.syllable }}
+                </span>
+            </p>
         </div>
     `,
 }
