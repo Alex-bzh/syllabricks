@@ -10,8 +10,8 @@ let app = new Vue({
                 isDisplayed: true
             },
             {
-                order: 3,
-                text: "port",
+                order: 1,
+                text: "é",
                 isDisplayed: true
             },
             {
@@ -20,8 +20,8 @@ let app = new Vue({
                 isDisplayed: true
             },
             {
-                order: 1,
-                text: "é",
+                order: 3,
+                text: "port",
                 isDisplayed: true
             }
         ],
@@ -30,6 +30,9 @@ let app = new Vue({
     components: {
         'bricks': bricksComponent,
         'reset': resetComponent
+    },
+    created: function() {
+        this.mixItems(this.syllables);
     },
     methods: {
         /*
