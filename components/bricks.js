@@ -10,7 +10,10 @@ let bricksComponent = {
         <div class="col-md-4 order-md-2 bg-secondary rounded align-self-baseline">
             <h2 class="text-white">
                 <span>Syllabes ({{ nbSyllables }})</span>
-                <button role="button" class="btn btn-secondary">
+                <button
+                    @click="reloadBricks"
+                    role="button"
+                    class="btn btn-secondary">
                     <span class="oi oi-reload" title="reload" aria-hidden="true"></span>
                 </button>
             </h2>
@@ -36,8 +39,14 @@ let bricksComponent = {
         *   @param {String} syllable: the syllable to add to the reset zone
         */
         addToResetZone: function(syllable) {
-            syllable.isDisplayed = false;
+            syllable.isDisplayed = false;   // Disables the button
             this.$emit('add-to-reset-zone', syllable.text, syllable.order);
+        },
+        /*
+        *   Reloads the actual set of syllables
+        */
+        reloadBricks: function() {
+            this.$emit('reload-bricks', this.syllables);
         }
     },
     computed: {

@@ -13,8 +13,8 @@
         <div class="container">
             <h1>Syllabricks</h1>
             <div class="row justify-content-between" id="wrapper">
+                <bricks :syllables="mixItems(syllables)" @add-to-reset-zone="updateResetZone" @reload-bricks="reloadBricks"></bricks>
                 <reset :bricks="bricks" :word="word"></reset>
-                <bricks :syllables="mixItems(syllables)" @add-to-reset-zone="updateResetZone"></bricks>
             </div>
         </div>
     </div>
