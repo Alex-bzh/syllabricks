@@ -5,12 +5,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="stylesheet" href="assets/bootstrap-4.3.1-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/app.css" />
 </head>
 <body>
     <div id="app">
         <div class="container">
             <h1>Syllabricks</h1>
-            <div class="row">
+            <div class="row justify-content-between" id="wrapper">
                 <reset :bricks="bricks" :word="word"></reset>
                 <bricks :syllables="mixItems(syllables)" @add-to-reset-zone="updateResetZone"></bricks>
             </div>

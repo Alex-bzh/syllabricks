@@ -1,0 +1,12 @@
+/* app.css */
+#wrapper {
+    height: 300px;
+}
+#reset-zone {
+    border-width: 10px;
+    border-style: dashed;
+}
+#word {
+    line-height: 280px; /* wrapper height minus (top border width + bottom border width)  */
+    margin: 0;
+}
