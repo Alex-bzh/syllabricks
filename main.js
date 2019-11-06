@@ -2,29 +2,9 @@
 let app = new Vue({
     el: '#app',
     data: {
-        word: 'aéroport',
-        syllables: [
-            {
-                order: 0,
-                text: "a",
-                isDisplayed: true
-            },
-            {
-                order: 1,
-                text: "é",
-                isDisplayed: true
-            },
-            {
-                order: 2,
-                text: "ro",
-                isDisplayed: true
-            },
-            {
-                order: 3,
-                text: "port",
-                isDisplayed: true
-            }
-        ],
+        words: ['a-é-ro-port', 'vo-lant', 'sa-cer-doce'],
+        selectedWord: '',
+        syllables: [],
         bricks: []
     },
     components: {
@@ -32,9 +12,31 @@ let app = new Vue({
         'reset': resetComponent
     },
     created: function() {
+        // Picks a random word inside the list
+        let word = this.words[Math.floor(Math.random() * this.words.length)];
+        // Sets the word as the selected one
+        this.selectedWord = word.replace(/-/g, '');
+        // Splits the word into syllables
+        this.syllables = this.splitsIntoSyllables(word);
+        // Mixes the syllables
         this.mixItems(this.syllables);
     },
     methods: {
+        /*
+        *   Splits a word into syllables
+        *   @param {String} word: the word to divide
+        */
+        splitsIntoSyllables: function(word) {
+            let syllables = [];
+            for (var i = word.split('-').length - 1; i >= 0; i--) {
+                syllables.push({
+                    order: i,
+                    text: word.split('-')[i],
+                    isDisplayed: true
+                });
+            }
+            return syllables;
+        },
         /*
         *   Shuffles array in place.
         *   Fisher-Yates modern shuffle algorithm
