@@ -11,8 +11,8 @@
         <div class="container">
             <h1>Syllabricks</h1>
             <div class="row">
-                <reset :word="word" :syllables="syllables"></reset>
-                <syllables :word="word" @add-to-reset-zone="updateResetZone"></syllables>
+                <reset :bricks="bricks" :word="word"></reset>
+                <bricks :syllables="mixItems(syllables)" @add-to-reset-zone="updateResetZone"></bricks>
             </div>
         </div>
     </div>
@@ -20,8 +20,8 @@
     <script src="assets/vuejs/vuex.js"></script>
     <script src="assets/jquery/jquery-3.4.1.min.js"></script>
     <script src="assets/bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="components/bricks.js"></script>
     <script src="components/reset.js"></script>
-    <script src="components/syllables.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
