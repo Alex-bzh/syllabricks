@@ -14,7 +14,7 @@
             <h1>Syllabricks</h1>
             <div class="row justify-content-between" id="wrapper">
                 <bricks :syllables="syllables" @add-to-reset-zone="updateResetZone" @reload-bricks="reloadBricks"></bricks>
-                <reset :bricks="bricks" :word="word"></reset>
+                <reset :bricks="bricks" :word="selectedWord"></reset>
             </div>
         </div>
     </div>
