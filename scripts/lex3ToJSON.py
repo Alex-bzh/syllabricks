@@ -22,11 +22,11 @@ if __name__ == "__main__":
 		lines = csv.reader(file, delimiter='\t')
 		# For each line in the file…
 		for line in lines:
-			# … the lexicon is updated with a simple dictionary :
+			# … the lexicon is updated with a simple dictionary
 			lexicon["words"].append(
 				{
-					# word is the key, and value is the ortho representation of the syllable
-					line[0]: line[27]
+					'word': line[0],
+					'orthosyll': line[27]
 				}
 			)
 
