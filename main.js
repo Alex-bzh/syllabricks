@@ -53,7 +53,20 @@ let app = new Vue({
         *   @param {Number} order: the correct order of the syllable in the word
         */
         updateResetZone: function(syllable, order) {
-            this.bricks.push({ syllable: syllable, order: order });
+            // Adds a syllable object
+            this.bricks.push({ syllable: syllable, order: order, isDisplayed: false });
+        },
+        /*
+        *   Reloads the reset zone and reactivates the syllables buttons
+        *   @param {Array} syllables: syllable objects
+        */
+        reloadBricks: function(syllables) {
+            // Rectivates the buttons
+            for (var i = syllables.length - 1; i >= 0; i--) {
+                syllables[i].isDisplayed = true;
+            }
+            this.bricks = [];           // Free the reset zone
+            this.syllables = syllables; // Transmits the array of syllable objects
         }
     }
 })
