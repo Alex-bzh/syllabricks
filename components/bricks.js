@@ -7,8 +7,8 @@ let bricksComponent = {
         }
     },
     template: `
-        <div class="col-md-4">
-            <h2>Syllabes ({{ nbSyllables }})</h2>
+        <div class="col-md-4 order-md-2 bg-secondary rounded align-self-baseline">
+            <h2 class="text-white">Syllabes ({{ nbSyllables }})</h2>
             <ul class="list-inline">
                 <li
                     v-for="syllable in syllables"
