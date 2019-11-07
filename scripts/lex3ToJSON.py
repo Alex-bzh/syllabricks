@@ -15,9 +15,11 @@ if __name__ == "__main__":
 	lexicon = {
 		"words": []
 	}
+	# Link to Lexique3 (not included with the app)
+	Lexique3 = '../assets/Lexique383/Lexique383.tsv'
 
 	# Working with the tabulated version of Lexique v3.8.3
-	with open('../assets/Lexique383/Lexique383.tsv', newline='') as file:
+	with open(Lexique3, newline='') as file:
 		# All the lines of the file
 		lines = csv.reader(file, delimiter='\t')
 		# For each line in the file…
