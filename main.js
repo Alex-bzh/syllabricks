@@ -2,7 +2,7 @@
 let app = new Vue({
     el: '#app',
     data: {
-        words: ['a-é-ro-port', 'vo-lant', 'sa-cer-doce'],
+        words: lexicon,     // lexicon is loaded through the store
         selectedWord: '',
         syllables: [],
         bricks: []
@@ -15,9 +15,9 @@ let app = new Vue({
         // Picks a random word inside the list
         let word = this.words[Math.floor(Math.random() * this.words.length)];
         // Sets the word as the selected one
-        this.selectedWord = word.replace(/-/g, '');
+        this.selectedWord = word.word;
         // Splits the word into syllables
-        this.syllables = this.splitsIntoSyllables(word);
+        this.syllables = this.splitsIntoSyllables(word.orthosyll);
         // Mixes the syllables
         this.mixItems(this.syllables);
     },
