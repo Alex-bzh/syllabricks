@@ -6,7 +6,7 @@ $.ajax({
     url: './store/lexicon.json',
     async: false,
     dataType: 'json',
-    success: function (response) {
-        lexicon = response["words"];
+    success: function (data) {
+        lexicon = data["words"];
     }
 });

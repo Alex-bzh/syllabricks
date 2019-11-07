@@ -12,7 +12,7 @@ let bricksComponent = {
                 <span>Syllabes ({{ nbSyllables }})</span>
                 <button
                     @click="reloadBricks"
-                    role="button"
+                    type="button"
                     class="btn btn-secondary">
                     <span class="oi oi-reload" title="reload" aria-hidden="true"></span>
                 </button>
@@ -24,7 +24,7 @@ let bricksComponent = {
                     <button
                         :key="syllable.order"
                         @click="addToResetZone(syllable)"
-                        role="button"
+                        type="button"
                         class="btn btn-light"
                         :disabled="!syllable.isDisplayed">
                         {{ syllable.text }}

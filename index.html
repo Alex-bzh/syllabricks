@@ -11,7 +11,12 @@
 <body>
     <div id="app">
         <div class="container">
-            <h1>Syllabricks</h1>
+            <div class="row mb-5">
+                <nav class="col navbar navbar-dark bg-dark">
+                    <span class="navbar-brand mb-0 h1">Syllabricks</span>
+                    <a href="./index.html" class="btn btn-outline-light" role="button">Nouveau mot !</a>
+                </nav>
+            </div>
             <div class="row justify-content-between" id="wrapper">
                 <bricks :syllables="syllables" @add-to-reset-zone="updateResetZone" @reload-bricks="reloadBricks"></bricks>
                 <reset :bricks="bricks" :word="selectedWord"></reset>
