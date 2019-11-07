@@ -22,13 +22,19 @@ if __name__ == "__main__":
 		lines = csv.reader(file, delimiter='\t')
 		# For each line in the file…
 		for line in lines:
-			# … the lexicon is updated with a simple dictionary
-			lexicon["words"].append(
-				{
-					'word': line[0],
-					'orthosyll': line[27]
-				}
-			)
+			# We don't keep the words that have only one syllable
+			if len(line[22].split('-')) > 1:
+				# … the lexicon is updated with a simple dictionary
+				lexicon["words"].append(
+					{
+						'word': line[0],
+						'syll': line[22],
+						'orthosyll': line[27]
+					}
+				)
+
+	# Deleting the first line (headers)
+	lexicon["words"] = lexicon["words"][1:]
 
 	# Writing a JSON dump of the lexicon in the store
 	with open('../store/lexicon.json', 'w') as dest:
