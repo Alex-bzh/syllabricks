@@ -32,7 +32,8 @@ if __name__ == "__main__":
             # We don't keep the words that have only one syllable,
             # neither than the words which lemma is already recorded.
             # Lastly, only record the word under its lemma form.
-            if len(syll.split('-')) > 1 and lemma not in lemmas and lemma == word:
+            # Temporarily, do not keep the words which ortho representation is empty
+            if len(syll.split('-')) > 1 and lemma not in lemmas and lemma == word and orthosyll:
                 # Record the lemma
                 lemmas.add(lemma)
                 # … the lexicon is updated with a simple dictionary
