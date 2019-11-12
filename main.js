@@ -9,6 +9,7 @@ let app = new Vue({
     },
     components: {
         'bricks': bricksComponent,
+        'navbar': navbarComponent,
         'reset': resetComponent
     },
     created: function() {
