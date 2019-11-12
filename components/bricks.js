@@ -25,7 +25,7 @@ let bricksComponent = {
                         :key="syllable.order"
                         @click="addToResetZone(syllable)"
                         type="button"
-                        class="btn btn-light"
+                        class="btn btn-light mb-1"
                         :disabled="!syllable.isDisplayed">
                         {{ syllable.text }}
                     </button>
