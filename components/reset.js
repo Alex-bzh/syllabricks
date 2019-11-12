@@ -1,9 +1,5 @@
 let resetComponent = {
     props: {
-        word: {
-            type: String,
-            required: true
-        },
         bricks: {
             type: Array,
             required: true
