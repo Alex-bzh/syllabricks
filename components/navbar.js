@@ -1,5 +1,12 @@
 // navbar.js
 let navbarComponent = {
+    props: {
+       isPhono: {
+            type: Boolean,
+            required: true,
+            default: false
+        }
+    },
     template: `
         <nav class="col navbar navbar-expand-md navbar-dark bg-dark">
             <a class="navbar-brand mb-0 h1" href="#">Syllabricks</a>
@@ -7,18 +14,32 @@ let navbarComponent = {
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSyll">
-                <!--<form class="form-inline">
+                <form class="form-inline">
                     <input
+                        @click="setPhonetic"
                         type="checkbox"
                         name="phonetic"
                         id="phonetic"
                         class="form-check-input" />
                     <label class="form-check-label text-white" for="phonetic">Phonétique</label>
-                </form>-->
+                </form>
             </div>
             <a href="./index.html" class="btn btn-outline-light" role="button">Nouveau mot !</a>
         </nav>
     `,
     methods: {
+        /*
+        *   Emits an event to set the boolean isPhonetic to true
+        *   TODO: improve the method!!!
+        */
+        setPhonetic: function() {
+            if (!this.isPhono) {
+                this.isPhono = true;
+                this.$emit('set-phonetic', true);
+            } else {
+                this.isPhono = false;
+                this.$emit('set-phonetic', false);
+            }
+        }
     }
 }

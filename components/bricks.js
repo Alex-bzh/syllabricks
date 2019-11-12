@@ -1,8 +1,12 @@
 // bricks.js
 let bricksComponent = {
     props: {
-        syllables: {
-            type: Array,
+        word: {
+            type: Object,
+            required: true
+        },
+        phonetic: {
+            type: Boolean,
             required: true
         }
     },
@@ -19,7 +23,7 @@ let bricksComponent = {
             </h2>
             <ul class="list-inline">
                 <li
-                    v-for="syllable in syllables"
+                    v-for="syllable in setSyllables"
                     class="list-inline-item">
                     <button
                         :key="syllable.order"
@@ -46,7 +50,11 @@ let bricksComponent = {
         *   Reloads the actual set of syllables
         */
         reloadBricks: function() {
-            this.$emit('reload-bricks', this.syllables);
+            if (this.honetic) {
+                this.$emit('reload-bricks', this.word.syll);
+            } else {
+                this.$emit('reload-bricks', this.word.orthosyll);
+            }
         }
     },
     computed: {
@@ -54,7 +62,13 @@ let bricksComponent = {
         *   Counts the number of syllables
         */
         nbSyllables: function() {
-            return this.syllables.length;
+            return (this.iphonetic) ? this.word.syll.length : this.word.orthosyll.length;
+        },
+        /*
+        *   Sets the phonetic or the orthographic representation as the referring syllables
+        */
+        setSyllables: function() {
+            return (this.phonetic) ? this.word.syll : this.word.orthosyll;
         }
     }
 }

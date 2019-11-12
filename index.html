@@ -12,10 +12,10 @@
     <div id="app">
         <div class="container">
             <div class="row mb-5">
-                <navbar></navbar>
+                <navbar :isPhono="isPhonetic" @set-phonetic="setPhonetic"></navbar>
             </div>
             <div class="row justify-content-between" id="wrapper">
-                <bricks :syllables="syllables" @add-to-reset-zone="updateResetZone" @reload-bricks="reloadBricks"></bricks>
+                <bricks :word="selectedWord" :phonetic="isPhonetic" @add-to-reset-zone="updateResetZone" @reload-bricks="reloadBricks"></bricks>
                 <reset :bricks="bricks" :word="selectedWord"></reset>
             </div>
         </div>

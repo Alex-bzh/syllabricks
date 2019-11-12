@@ -3,9 +3,10 @@ let app = new Vue({
     el: '#app',
     data: {
         words: lexicon,     // lexicon is loaded through the store
-        selectedWord: '',
-        syllables: [],
-        bricks: []
+        selectedWord: {},
+        //syllables: [],
+        bricks: [],
+        isPhonetic: false
     },
     components: {
         'bricks': bricksComponent,
@@ -13,14 +14,14 @@ let app = new Vue({
         'reset': resetComponent
     },
     created: function() {
-        // Picks a random word inside the list
-        let word = this.words[Math.floor(Math.random() * this.words.length)];
-        // Sets the word as the selected one
-        this.selectedWord = word.word;
+        // Sets a random word as the selected one
+        this.selectedWord = this.words[Math.floor(Math.random() * this.words.length)];
         // Splits the word into syllables
-        this.syllables = this.splitsIntoSyllables(word.orthosyll);
+        this.selectedWord.syll = this.splitsIntoSyllables(this.selectedWord.syll);
+        this.selectedWord.orthosyll = this.splitsIntoSyllables(this.selectedWord.orthosyll);
         // Mixes the syllables
-        this.mixItems(this.syllables);
+        this.mixItems(this.selectedWord.syll);
+        this.mixItems(this.selectedWord.orthosyll);
     },
     methods: {
         /*
@@ -73,6 +74,13 @@ let app = new Vue({
             }
             this.bricks = [];           // Free the reset zone
             this.syllables = syllables; // Transmits the array of syllable objects
+        },
+        /*
+        *   Sets the boolean to true
+        *   @param {Boolean} phonetic: either the representation of the syllables is phonetic or not
+        */
+        setPhonetic: function(phonetic) {
+            this.isPhonetic = phonetic;
         }
     }
 })
