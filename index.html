@@ -12,10 +12,7 @@
     <div id="app">
         <div class="container">
             <div class="row mb-5">
-                <nav class="col navbar navbar-dark bg-dark">
-                    <span class="navbar-brand mb-0 h1">Syllabricks</span>
-                    <a href="./index.html" class="btn btn-outline-light" role="button">Nouveau mot !</a>
-                </nav>
+                <navbar></navbar>
             </div>
             <div class="row justify-content-between" id="wrapper">
                 <bricks :syllables="syllables" @add-to-reset-zone="updateResetZone" @reload-bricks="reloadBricks"></bricks>
@@ -28,6 +25,7 @@
     <script src="assets/bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script>
     <script src="store/store.js"></script>
     <script src="components/bricks.js"></script>
+    <script src="components/navbar.js"></script>
     <script src="components/reset.js"></script>
     <script src="main.js"></script>
 </body>
