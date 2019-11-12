@@ -15,6 +15,9 @@ if __name__ == "__main__":
 	lexicon = {
 		"words": []
 	}
+	# We want to keep track of the lemmas
+	lemmas = set()
+
 	# Link to Lexique3 (not included with the app)
 	Lexique3 = '../assets/Lexique383/Lexique383.tsv'
 
@@ -24,16 +27,21 @@ if __name__ == "__main__":
 		lines = csv.reader(file, delimiter='\t')
 		# For each line in the file…
 		for line in lines:
-			# We don't keep the words that have only one syllable
-			if len(line[22].split('-')) > 1:
+			# Fast access to the lemma
+			lemma = line[2]
+			# We don't keep the words that have only one syllable,
+			# neither than the words which lemme is already recorded
+			if len(line[22].split('-')) > 1 and lemma not in(lemmas):
 				# … the lexicon is updated with a simple dictionary
 				lexicon["words"].append(
 					{
-						'word': line[0],
+						'word': line[2],
 						'syll': line[22],
 						'orthosyll': line[27]
 					}
 				)
+				# Record the lemme
+				lemmas.add(lemma)
 
 	# Deleting the first line (headers)
 	lexicon["words"] = lexicon["words"][1:]
