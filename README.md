@@ -24,3 +24,6 @@ You can click anytime on the button *refresh* to erase your attempt and give it 
 The Syllabricks database comes from [Lexique 3.8](http://www.lexique.org) :
 - New B., Pallier C., Ferrand L., Matos R. (2001) Une base de données lexicales du français contemporain sur internet: LEXIQUE, *L'Année Psychologique*, 101, 447-462. http://www.lexique.org
 - New, B., Pallier, C., Brysbaert, M., Ferrand, L. (2004) Lexique 2: A New French Lexical Database. *Behavior Research Methods, Instruments, & Computers*, 36 (3), 516-524.
+
+All the definitions of the words have been automatically scraped from the Larousse website:
+- Caron, Antoine, Chiesa, Pierre, Girerd, Laurent, et. al. Larousse.fr [en ligne]. Paris : Éditions Larousse, 2019. [Consulté le 13/11/2019]. Disponible à l'adresse : https://www.larousse.fr/dictionnaires/francais/
