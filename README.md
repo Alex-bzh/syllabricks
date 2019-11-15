@@ -10,12 +10,11 @@ The column on the right side of the window contains a list of syllables. Put tog
 
 A click on a brick makes the letter appear in the main column. If the syllable is at its right place in the word, it will appear in green (success !); if not, it will appear in red (error…).
 
-You can click anytime on the button *refresh* to erase your attempt and give it a new try. Beware! Reloading the page would trigger the display of a new set of syllables. This feature can be more simply achieved by hitting the *Nouveau mot !* button.
+You can click anytime on the button *refresh* to erase your attempt and give it a new try. Beware! Reloading the page would trigger the display of a new set of syllables. This feature can be more simply achieved by hitting the *Nouveau mot !* button. Moreover, the button would prevent the reloading of the entire database.
 
 ## Coming features
 
 - selecting the number of syllables
-- switching between the phonetic representation of the syllable and its orthographic representation
 - inserting parasitic syllables
 - hiding/showing a brief definition of the word
 

@@ -102,6 +102,13 @@ let app = new Vue({
         */
         setPhonetic: function(phonetic) {
             this.isPhonetic = phonetic;
+        },
+        /*
+        *   Displays a new set of syllables
+        */
+        setWord: function() {
+            this.bricks = [];           // Free the reset zone
+            this.initBricks();          // Initializes the new set
         }
     }
 })
