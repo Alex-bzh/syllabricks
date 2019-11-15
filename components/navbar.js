@@ -24,7 +24,7 @@ let navbarComponent = {
                     <label class="form-check-label text-white" for="phonetic">Phonétique</label>
                 </form>
             </div>
-            <a href="./index.html" class="btn btn-outline-light" role="button">Nouveau mot !</a>
+            <button @click="setWord" class="btn btn-outline-light" role="button">Nouveau mot !</button>
         </nav>
     `,
     methods: {
@@ -40,6 +40,12 @@ let navbarComponent = {
                 this.isPhono = false;
                 this.$emit('set-phonetic', false);
             }
+        },
+        /*
+        *   Emits an event to display a new word
+        */
+        setWord: function() {
+            this.$emit('set-word');
         }
     }
 }
