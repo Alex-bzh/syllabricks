@@ -2,9 +2,8 @@
 let app = new Vue({
     el: '#app',
     data: {
-        words: lexicon,     // lexicon is loaded through the store
+        words: null,
         selectedWord: {},
-        //syllables: [],
         bricks: [],
         isPhonetic: false
     },
@@ -14,16 +13,38 @@ let app = new Vue({
         'reset': resetComponent
     },
     created: function() {
-        // Sets a random word as the selected one
-        this.selectedWord = this.words[Math.floor(Math.random() * this.words.length)];
-        // Splits the word into syllables
-        this.selectedWord.syll = this.splitsIntoSyllables(this.selectedWord.syll);
-        this.selectedWord.orthosyll = this.splitsIntoSyllables(this.selectedWord.orthosyll);
-        // Mixes the syllables
-        this.mixItems(this.selectedWord.syll);
-        this.mixItems(this.selectedWord.orthosyll);
+        this.fetchWords();
     },
     methods: {
+        /*
+        *   Fetches the words in the database
+        */
+        fetchWords: function() {
+            // Fetch API
+            fetch("./store/lexicon.json")
+                // Gets a response from the API,
+                // and process it as a JSON structure
+                .then(response => response.json())
+                // Associates the local words variable with
+                // content of the JSON structure
+                .then(json => {
+                    this.words = json.words;
+                    this.initBricks();
+            });
+        },
+        /*
+        *   Intializes the bricks of syllables
+        */
+        initBricks: function() {
+            // Sets a random word as the selected one
+            this.selectedWord = this.words[Math.floor(Math.random() * this.words.length)];
+            // Splits the word into syllables
+            this.selectedWord.syll = this.splitsIntoSyllables(this.selectedWord.syll);
+            this.selectedWord.orthosyll = this.splitsIntoSyllables(this.selectedWord.orthosyll);
+            // Mixes the syllables
+            this.mixItems(this.selectedWord.syll);
+            this.mixItems(this.selectedWord.orthosyll);
+        },
         /*
         *   Splits a word into syllables
         *   @param {String} word: the word to divide

@@ -13,7 +13,7 @@ let bricksComponent = {
     template: `
         <div class="col-md-4 order-md-2 bg-secondary rounded align-self-baseline">
             <h2 class="text-white">
-                <span>Syllabes ({{ nbSyllables }})</span>
+                <span>Syllabes</span>
                 <button
                     @click="reloadBricks"
                     type="button"
@@ -50,7 +50,7 @@ let bricksComponent = {
         *   Reloads the actual set of syllables
         */
         reloadBricks: function() {
-            if (this.honetic) {
+            if (this.phonetic) {
                 this.$emit('reload-bricks', this.word.syll);
             } else {
                 this.$emit('reload-bricks', this.word.orthosyll);
@@ -58,12 +58,6 @@ let bricksComponent = {
         }
     },
     computed: {
-        /*
-        *   Counts the number of syllables
-        */
-        nbSyllables: function() {
-            return (this.iphonetic) ? this.word.syll.length : this.word.orthosyll.length;
-        },
         /*
         *   Sets the phonetic or the orthographic representation as the referring syllables
         */
