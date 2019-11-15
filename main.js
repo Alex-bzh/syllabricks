@@ -99,8 +99,19 @@ let app = new Vue({
         /*
         *   Sets the boolean to true
         *   @param {Boolean} phonetic: either the representation of the syllables is phonetic or not
+        *   TODO : improve the function !!
         */
         setPhonetic: function(phonetic) {
+            this.bricks = [];
+            if (phonetic) {
+                for (var i = this.selectedWord.syll.length - 1; i >= 0; i--) {
+                    this.selectedWord.syll[i].isDisplayed = true;
+                }
+            } else {
+                for (var i = this.selectedWord.orthosyll.length - 1; i >= 0; i--) {
+                    this.selectedWord.orthosyll[i].isDisplayed = true;
+                }
+            }
             this.isPhonetic = phonetic;
         },
         /*
